@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+
+let Marriage = require('../services/src/stable-marriage');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  let result = Marriage.StableMarriage.doMarriage();
+  res.status(200).send(result);
 });
 
 module.exports = router;

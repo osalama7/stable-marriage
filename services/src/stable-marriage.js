@@ -1,6 +1,6 @@
 function Person(name) {
     
-    var candidateIndex = 0;
+    let candidateIndex = 0;
     
     this.name = name;
     this.fiance = null;
@@ -30,30 +30,30 @@ function Person(name) {
     
     this.swapWith = function(p) {
         console.log("%s & %s swap partners", this.name, p.name);
-        var thisFiance = this.fiance;
-        var pFiance = p.fiance;
+        let thisFiance = this.fiance;
+        let pFiance = p.fiance;
         this.engageTo(pFiance);
         p.engageTo(thisFiance);
     };
 }
 
 function isStable(guys, gals) {
-    for (var i = 0; i < guys.length; i++)
-        for (var j = 0; j < gals.length; j++)
+    for (let i = 0; i < guys.length; i++)
+        for (let j = 0; j < gals.length; j++)
             if (guys[i].prefers(gals[j]) && gals[j].prefers(guys[i]))
                 return false;
     return true;
 }
 
 function engageEveryone(guys) {
-    var done;
+    let done;
     do {
         done = true;
-        for (var i = 0; i < guys.length; i++) {
-            var guy = guys[i];
+        for (let i = 0; i < guys.length; i++) {
+            let guy = guys[i];
             if (!guy.fiance) {
                 done = false;
-                var gal = guy.nextCandidate();
+                let gal = guy.nextCandidate();
                 if (!gal.fiance || gal.prefers(guy))
                     guy.engageTo(gal);
             }
@@ -63,26 +63,26 @@ function engageEveryone(guys) {
 
 function doMarriage() {
     
-    var abe  = new Person("Abe");
-    var bob  = new Person("Bob");
-    var col  = new Person("Col");
-    var dan  = new Person("Dan");
-    var ed   = new Person("Ed");
-    var fred = new Person("Fred");
-    var gav  = new Person("Gav");
-    var hal  = new Person("Hal");
-    var ian  = new Person("Ian");
-    var jon  = new Person("Jon");
-    var abi  = new Person("Abi");
-    var bea  = new Person("Bea");
-    var cath = new Person("Cath");
-    var dee  = new Person("Dee");
-    var eve  = new Person("Eve");
-    var fay  = new Person("Fay");
-    var gay  = new Person("Gay");
-    var hope = new Person("Hope");
-    var ivy  = new Person("Ivy");
-    var jan  = new Person("Jan");
+    let abe  = new Person("Abe");
+    let bob  = new Person("Bob");
+    let col  = new Person("Col");
+    let dan  = new Person("Dan");
+    let ed   = new Person("Ed");
+    let fred = new Person("Fred");
+    let gav  = new Person("Gav");
+    let hal  = new Person("Hal");
+    let ian  = new Person("Ian");
+    let jon  = new Person("Jon");
+    let abi  = new Person("Abi");
+    let bea  = new Person("Bea");
+    let cath = new Person("Cath");
+    let dee  = new Person("Dee");
+    let eve  = new Person("Eve");
+    let fay  = new Person("Fay");
+    let gay  = new Person("Gay");
+    let hope = new Person("Hope");
+    let ivy  = new Person("Ivy");
+    let jan  = new Person("Jan");
     
     abe.candidates  = [abi, eve, cath, ivy, jan, dee, fay, bea, hope, gay];
     bob.candidates  = [cath, hope, abi, dee, eve, fay, bea, jan, ivy, gay];
@@ -105,12 +105,12 @@ function doMarriage() {
     ivy.candidates  = [ian, col, hal, gav, fred, bob, abe, ed, jon, dan];
     jan.candidates  = [ed, hal, gav, abe, bob, jon, col, ian, fred, dan];
     
-    var guys = [abe, bob, col, dan, ed, fred, gav, hal, ian, jon];
-    var gals = [abi, bea, cath, dee, eve, fay, gay, hope, ivy, jan];
+    let guys = [abe, bob, col, dan, ed, fred, gav, hal, ian, jon];
+    let gals = [abi, bea, cath, dee, eve, fay, gay, hope, ivy, jan];
     
     engageEveryone(guys);
     
-    for (var i = 0; i < guys.length; i++) {
+    for (let i = 0; i < guys.length; i++) {
         console.log("%s is engaged to %s", guys[i].name, guys[i].fiance.name);
     }
     console.log("Stable = %s", isStable(guys, gals) ? "Yes" : "No");
@@ -118,4 +118,5 @@ function doMarriage() {
     console.log("Stable = %s", isStable(guys, gals) ? "Yes" : "No");
 }
 
-doMarriage();
+
+module.exports.StableMarriage = { doMarriage };
