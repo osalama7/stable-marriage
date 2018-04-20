@@ -116,6 +116,8 @@ function doMarriage() {
     console.log("Stable = %s", isStable(guys, gals) ? "Yes" : "No");
     jon.swapWith(fred);
     console.log("Stable = %s", isStable(guys, gals) ? "Yes" : "No");
+    
+    return { stableMarriages: guys, stable: isStable(guys, gals) }
 }
 
 

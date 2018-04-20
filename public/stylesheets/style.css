@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}

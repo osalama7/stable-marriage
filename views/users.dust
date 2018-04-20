@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{title}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='javascript' href='/javascripts/users'/>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <p>Welcome to {title}</p>
+
+    <ul class="columns" data-columns="2">
+            <li></li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+        </ul>
+  </body>
+</html>
